@@ -17,11 +17,8 @@ gem "jekyll", "~> 3.7.2"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.6"
   gem "jekyll-paginate-v2"
-  gem 'jekyll-relative-links'
   gem 'jekyll-autoprefixer'
-  gem 'jekyll-figure'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

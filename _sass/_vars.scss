@@ -2,8 +2,8 @@ $enable-shadows: true;
 $enable-rounded: true;
 $enable-gradients: true;
 
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/functions";
+@import "vendor/bootstrap/scss/mixins";
+@import "vendor/bootstrap/scss/functions";
 
 /*Colors have to be defined up here in order to overwrite color maps like $theme-colors */
 $primary: #4b8ad3;
@@ -36,7 +36,7 @@ $theme-colors: (
 
 
 /* Now import the bootstrap standard variables for access to standard values. Defined colors are overwritten */
-@import "bootstrap/scss/variables";
+@import "vendor/bootstrap/scss/variables";
 
 
 $big-navbar-height: 3.2rem;
