@@ -1,0 +1,472 @@
+--- 
+# Front matter comment to ensure Jekyll properly reads file. 
+---
+
+@import "vars";
+@import "syntax-highlight";
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    nav.navbar {
+        min-height: $big-navbar-height;
+        background-color: $lighter !important;
+        box-shadow: 0 0 5px rgba($dark, .3);
+        padding: 0;
+       // box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+        transition: 0.1s;
+
+        .navbar-brand {
+            img {
+                max-height: 0.1rem + $big-navbar-height - 1rem; //don't let it shrink to nothing
+            }
+            h1 {
+                font-size: $big-navbar-height * 2/3;
+            }
+        }
+        a {
+            display: block;
+            height: 100%;
+            line-height: $big-navbar-height;
+            padding: 0;
+            min-width: 5rem;
+            text-align: center;
+        }
+        div.collapse {
+            height: 100%;
+            justify-content: flex-end;
+
+            ul.navbar-nav {
+                height: 100%;
+
+                a:hover {
+                    background-color: $highlight;
+                    color: $light;
+                }
+            }
+        }
+    }
+}
+
+.head-title{
+    background: $header-image-url;
+    background-size: cover;
+    color: $lighter;
+    text-shadow: 1px 1px $dark;
+    margin-bottom: 1.5rem;
+    padding: 0;
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        min-height: 20rem;
+        overflow: auto;
+        padding-top: 5vw;
+        background: rgba($dark, 0.4);
+    }
+
+    h1 {
+        z-index: 0;
+        color: #fff;
+        font-size: calc(3vh + 3vw);
+        line-height: 65px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    h2 {
+        width: 100%;
+        font-weight: 200;
+        font-size: calc(1vh + 1vw);
+        text-align: center;
+    }
+}
+
+
+/* CAROUSEL
+  -------------------------------------------------- */
+
+.carousel {
+    margin-bottom: 4rem;
+}
+
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+.carousel-item {
+    height: 32rem;
+    background-color: #777;
+}
+
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
+
+
+/* Featurettes
+  ------------------------- */
+
+.featurette-divider {
+    margin: 1.5rem 0;
+    border-color: $light;
+}
+
+main .featurette:first-of-type {
+    margin-top: 1rem;
+}
+
+.featurette {
+    background: $body-bg;
+    padding: 1.5rem;
+   // box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+
+    .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -.05rem;
+        margin-bottom: 1rem;
+    }
+
+    .featurette-heading:after {
+        display: block;
+        content: "";
+        width: 30%;
+        background-color: $highlight;
+        height: 0.2rem;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .post-text {
+        padding: 0 1em 1em 1em;
+        text-align: justify;
+    }
+
+    .featurette-image{
+
+        .img-square-container{
+                position: relative;
+                width: 80%;
+                overflow: hidden;
+
+            &:before{
+                display: block;
+                padding-top: 100%;
+                content: "";
+            }
+            .img-square-content {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                text-align:center;  // old ie
+                font: 0/0 a;        // old ie
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                    position: relative;
+                    text-align: center;
+                    font: 0/0 a;
+                    vertical-align: middle;
+                    transition: all 0.3s ease;
+
+                    img{
+                        transition: inherit;
+                        height: 100%;
+                        width: auto;
+                        align-self: center;
+                    }
+                }   
+
+            }
+
+            a:hover {
+                border-radius: 0% !important;
+                box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+                img {
+                    transform: scale(1.1);
+                }
+            }   
+        }
+    }
+}
+
+.container.main-content {
+    margin-top: 2rem;
+
+    .post-content>p:first-of-type {
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+}
+
+footer {
+    min-height: 5rem;
+    background-color: $darker;
+    border-top: 3px solid $highlight;
+    color: $light;
+    padding-top: 1rem;
+    
+    .copyright {
+        text-align: center;
+        color: rgba($light, 0.3);
+        font-size: 70%;
+    }
+}
+
+main {
+    p {
+        text-align: justify;
+        letter-spacing: 0.002em;
+    }
+}
+
+.post-content {
+    img {
+        max-width: 90%;
+        text-align: center;
+        margin: auto;
+        display: block;
+    }
+
+    img.left{
+        float: left;
+        max-width: 50%;
+    }
+    
+    img.right {
+        float: right;
+        max-width: 50%;
+    }
+    
+    figure {
+        width: 100%;
+        figcaption {
+            font-size: $figure-caption-font-size;
+            color: $figure-caption-color;
+            text-align: center;
+        }
+    }
+}
+
+
+/* Dirty dirty hack for correct anchor behavior in connection with the floating navbar */
+.heading-anchor:before {
+    display: block; 
+    content: " "; 
+    margin-top: -$big-navbar-height * 1.2; 
+    height: $big-navbar-height * 1.2; 
+    visibility: hidden; 
+    pointer-events: none;
+}
+
+h1, h2, h3, 
+h4, h5, h6 {
+    a.heading-anchor-link {
+        transition: 0.1s ease;
+        color: rgba($dark, 0);
+        i {
+            transition: 0.3s ease;
+            transform: rotate(-30deg);
+            padding-left: 0.5rem;
+       }
+    }
+}
+
+h1:hover, h2:hover, h3:hover, 
+h4:hover, h5:hover, h6:hover {
+    a.heading-anchor-link {
+        color: rgba($dark, 1);
+        i {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+/* Scrollspy mods */
+body {
+    position: relative;
+}
+
+.scrollertoc {
+    transition: 0.2s ease;
+    a.nav-link {
+        color: rgba($dark, 0.8);
+        display: block;
+        width: 100%;
+        font-size: 85%;
+        padding: 0.2rem 1rem;
+    }
+
+    a.active {
+        color: rgba($primary, 0.8);
+    }
+
+    .nav {
+        padding-left: 1rem;
+    }
+    
+    .nav > .nav {
+        display: none;
+    }
+
+    .active + .nav {
+        display: flex;
+    }
+
+    .active + .nav>.active{
+        border-left: 2px solid $primary;
+    }
+}
+
+/*end scrollspy*/
+
+/* tables */
+table {
+	width: 100%;
+	margin: 0 0 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	border-spacing: 0;
+	border-collapse: collapse;
+	font-size: 14px;
+	line-height: 2;
+}
+
+caption,
+th,
+td {
+	font-weight: normal;
+	text-align: left;
+}
+
+caption {
+	margin: 20px 0;
+	font-size: 16px;
+}
+
+th {
+	padding: 6px 10px 6px 0;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+td {
+	padding: 6px 10px 6px 0;
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+thead th {
+	border: none;
+}
+
+
+
+/* GLOBAL */
+
+blockquote {
+    border-left: 2px solid $primary;
+    padding-left: 1rem;
+}
+
+a:hover {
+    color: $highlight;
+    text-decoration: none;
+}
+
+.post-meta {
+    font-size: 80%;
+    color: $grey;
+    line-height: 80%;
+    .material-icons{
+        font-size: 120%;
+    }
+    a {
+        color: $grey;
+    }
+}
+
+.static-background {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.navbar-toggler {
+    border: 0;
+    background-color: $light;
+    border-radius: 0;
+}
+
+.affix {
+    position: sticky;
+    top: $big-navbar-height + 1rem;
+}
+
+.highlight {
+    background-color: $lighter;
+}
+
+.card-body div.highlight {
+    background-color: inherit;
+    box-shadow: -2px 1px 5px rgba(0, 0, 0, .2);
+    padding: 1rem;
+    .highlight {
+        background-color: inherit;
+    }
+}
+
+figure.highlight {
+    box-shadow: 0px 0px 3px -2px $dark;
+}
+
+
+
+
+.alert {
+    border-left: 6px solid rgba(0,0,0,0.1);
+    background-clip: border-box;
+}
+.alert-info {
+    border-left-color: $info;
+    &:before{
+        content: " ";
+        background: url("/assets/icons-idee.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 3rem;
+        width: 3rem;
+        float: left;
+        display: block;
+        margin-left: -1rem;
+    }
+}
+.alert-primary {
+    border-left-color: $primary;
+}
+.alert-secondary {
+    border-left-color: $secondary;
+}
+.alert-danger {
+    border-left-color: $danger;
+}
+.alert-warning {
+    border-left-color: $warning;
+}
+
+
+abbr[title], abbr[data-original-title] {
+    text-underline-position: under;
+}

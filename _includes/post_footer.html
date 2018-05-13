@@ -1,0 +1,61 @@
+{% include footer.html %} 
+{% include standard_scripts.html %} 
+
+{% if page.showtoc == true %}
+<script src="{{"/js/scrollspy-toc.js" | absolute_url }}"></script>
+<script>
+    var body = document.getElementsByTagName("body")[0];
+    body.setAttribute("data-spy", "scroll");
+    body.setAttribute("data-target", "#scrollspy-nav");
+    body.setAttribute("data-offset", "30");
+    window.Toc.init();
+  </script> 
+{% endif %}
+
+<script>
+  var content = document.querySelectorAll("main");
+  var headings = content[0].querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
+  for (var i = 0; i < headings.length; i++) {
+    headings[i].innerHTML =
+      headings[i].innerHTML +
+      '<a class="heading-anchor-link" href="#' + headings[i].id + '">' +
+      '<i class="material-icons">link</i>' +
+      '</a>';
+    headings[i].classList.add('heading-anchor');
+  }
+</script>
+
+<script type="text/javascript" src="{{"/js/plugins/jquery.socialshareprivacy.js" | absolute_url }}"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+    if($('#socialshareprivacy').length > 0){
+      $('#socialshareprivacy').socialSharePrivacy({
+        'services' : {
+          'facebook' : {
+            'perma_option' : 'off',
+            'sharer' : {
+              'status'    : 'on',
+              'dummy_img' : '{{"/js/plugins/socialshareprivacy/images/dummy_facebook_share_de.png" | absolute_url }}',
+              'img'       : '{{"/js/plugins/socialshareprivacy/images/facebook_share_de.png" | absolute_url }}'
+            }
+          },
+          'twitter' : {
+            'status'    : 'on',
+            'perma_option' : 'off',
+            'dummy_img' : '{{"/js/plugins/socialshareprivacy/images/dummy_twitter.png" | absolute_url }}'
+          },
+          'gplus' : {
+            'status'    : 'on',
+            'perma_option' : 'off',
+            'dummy_img' : '{{"/js/plugins/socialshareprivacy/images/dummy_gplus.png" | absolute_url }}'
+          },
+        },
+        "css_path"  : '{{"/js/plugins/socialshareprivacy/socialshareprivacy.css" | absolute_url }}',
+        "lang_path" : '{{"/js/plugins/socialshareprivacy/lang/" | absolute_url }}',
+        "language"  : 'de'
+      });
+    }
+  });
+</script>
+</body>
+</html>

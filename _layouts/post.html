@@ -1,0 +1,57 @@
+---
+---
+{% include html_head.html %}
+{% include navbar.html %}
+
+{% if page.showtoc == true or page.showcategorytoc == true %}
+    {% assign multicol = true %}
+{% endif %}
+
+<main role="main">
+    <div class="container main-content">
+            <div class="row">
+
+                {% if multicol == true%}
+                <div class="col-sm-9 post-content">
+                {% else %}
+                <div class="col post-content">
+                {% endif %}
+                    <h1 class="page-header"> {{ page.title }} </h1>
+                    {{content}}
+                    <hr />
+                    <div class="post-meta"> </div>
+                    <div id="socialshareprivacy"></div>
+                </div>
+
+
+                {% if multicol == true %}
+                <div class="col-sm-3">
+                    {% if page.showcategorytoc == true %}
+                    
+                    {% for category in page.categories %}
+                        <div class="category-toc card">
+                            <div class="card-body">
+                                <h5 class="card-title"> Mehr aus {{ category }} </h3>
+                                <ul class="list-group list-group-flush">
+                                    {% for post in site.categories[category] %}
+                                    <li class="list-group-item"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div> 
+                    {% endfor %}
+
+                    {% endif %}
+
+                    {% if page.showtoc == true %}
+                        {% include scrollspynav.html %}
+                    {% endif %}
+
+                </div>
+                {% endif %}
+            </div>
+        <hr />
+    </div>
+</main>
+
+{% include post_footer.html %}

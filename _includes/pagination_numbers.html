@@ -1,0 +1,13 @@
+{% if paginator.total_pages > 1 %}
+<nav>
+  <ul class="pagination">
+    {% if paginator.page_trail %}
+    {% for trail in paginator.page_trail %}
+      <li class="page-item{% if page.url == trail.path %} active{% endif %}">
+          <a class="page-link" href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a>
+      </li>
+    {% endfor %}
+  {% endif %}
+  </ul>
+</nav>
+{% endif %}

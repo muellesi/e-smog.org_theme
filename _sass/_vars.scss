@@ -1,0 +1,54 @@
+$enable-shadows: true;
+$enable-rounded: true;
+$enable-gradients: true;
+
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/functions";
+
+/*Colors have to be defined up here in order to overwrite color maps like $theme-colors */
+$primary: #4b8ad3;
+$secondary: #56a5ff;
+$danger: #9c1710;
+$warning: #ffd900;
+$success: #008000;
+$info: #56a5ff;
+$light: #ececec;
+$lighter: #f1f1f1;
+$grey: #727272;
+$dark: #303133;
+$darker: #131414;
+$darkest: #121313;
+$highlight: #22b6fa;
+$body-bg: $lighter;
+$body-color: $darker;
+$navbar-light-color: $dark;
+
+$theme-colors: ( 
+  "primary":    $primary, 
+  "secondary":  $secondary,
+  "danger":     $danger,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+/* Now import the bootstrap standard variables for access to standard values. Defined colors are overwritten */
+@import "bootstrap/scss/variables";
+
+
+$big-navbar-height: 3.2rem;
+$small-navbar-height: 3rem;
+$header-image-url: url("/assets/circuit_board.jpg");
+$headings-font-family: Montserrat, $font-family-base;
+$headings-font-weight: 400;
+$line-height-base: 1.625;
+$single-side-border-width: 5px;
+
+@mixin single-border-colored-box($color) {
+  border-left: $single-side-border-width solid $color;
+  background: rgba($color, 0.2);
+  padding: 1rem;
+}
