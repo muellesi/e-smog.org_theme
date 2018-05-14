@@ -10,7 +10,7 @@
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
        url({{ "/assets/fonts/MaterialIcons-Regular.woff2" | absolute_url }}) format('woff2'),
-       url{{ "(/assets/fonts/MaterialIcons-Regular.woff" | absolute_url }}) format('woff'),
+       url({{ "/assets/fonts/MaterialIcons-Regular.woff" | absolute_url }}) format('woff'),
        url({{ "/assets/fonts/MaterialIcons-Regular.ttf" | absolute_url }}) format('truetype');
 }
 
