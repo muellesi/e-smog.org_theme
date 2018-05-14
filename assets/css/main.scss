@@ -443,7 +443,7 @@ figure.highlight {
     border-left-color: $info;
     &:before{
         content: " ";
-        background: url("/assets/icons-idee.svg");
+        background: url(" {{ "/assets/icons-idee.svg" | absolute_url }} ");
         background-repeat: no-repeat;
         background-size: contain;
         height: 3rem;

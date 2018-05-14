@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "theme-e-smog"
-  spec.version       = "0.1.4"
+  spec.version       = "0.1.6"
   spec.authors       = ["Simon Mueller"]
   spec.email         = ["s.mueller.hn@web.de"]
 
