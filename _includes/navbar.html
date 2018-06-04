@@ -13,20 +13,24 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+          {% for entry in site.data.menu %}
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ "/" | absolute_url }}">Home</a>
+          {% for item in entry.items %}
+            {% assign itemhassubitems = item.subitems.size != 0 %}
+            <li class="nav-item {% if itemhassubitems %}dropdown{% endif %}">
+              <a class="nav-link {% if itemhassubitems %}dropdown-toggle{% endif %} {% if item.href == page.url %}active{% endif %}" href="{{ item.href | absolute_url }}" {% if itemhassubitems %}id="navbarDropdown{{ item.title  | slugify }}" 
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>{{ item.title }}</a>
+                {% if itemhassubitems %}
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown{{item.title | slugify }}">
+                  {% for subitem in item.subitems %}
+                      <a class="dropdown-item " href="{{ subitem.href | absolute_url }}">{{ subitem.title }}</a>
+                  {% endfor %}
+                </div>
+                {% endif %}
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ "/category/ttt-server" | absolute_url }}">TTT Dedicated Server</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{{ "/category/games" | absolute_url }}">Games</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{{ "/category/gimp" | absolute_url }}">Gimp</a>
-            </li>
+          {% endfor %}
           </ul>
+        {% endfor %}
         </div>
     </div>
   </nav>
