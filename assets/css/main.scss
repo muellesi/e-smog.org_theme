@@ -116,7 +116,7 @@ header {
   ------------------------- */
 
 .featurette-divider {
-    margin: 1.5rem 0;
+    margin: 0.5rem 0;
     border-color: $light;
 }
 
@@ -126,8 +126,8 @@ main .featurette:first-of-type {
 
 .featurette {
     background: $body-bg;
-    padding: 1.5rem;
-   // box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    padding: 1.2rem;
+    // box-shadow: 0 0 2px rgba(0, 0, 0, .1);
 
     .featurette-heading {
         font-weight: 300;

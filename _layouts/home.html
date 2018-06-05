@@ -6,7 +6,7 @@
 <main role="main">
   <div class="container">
     {% for post in paginator.posts %}
-    <div class="row featurette">
+    <div class="row featurette {% cycle 'odd', 'even' %}">
 
       <div class="featurette-image col-md-3">
         <div class="img-square-container mx-auto">
