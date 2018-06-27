@@ -156,7 +156,6 @@ main .featurette:first-of-type {
         .img-square-container{
                 position: relative;
                 width: 80%;
-                overflow: hidden;
 
             &:before{
                 display: block;
@@ -195,7 +194,6 @@ main .featurette:first-of-type {
 
             a:hover {
                 border-radius: 0% !important;
-                box-shadow: 0 0 5px rgba(0, 0, 0, .8);
                 img {
                     transform: scale(1.1);
                 }
