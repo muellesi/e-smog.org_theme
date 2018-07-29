@@ -11,7 +11,7 @@ header {
     z-index: 9999;
     nav.navbar {
         min-height: $big-navbar-height;
-        background-color: $lighter !important;
+        background-color: rgba($lighter, 0.85) !important;
         box-shadow: 0 0 5px rgba($dark, .3);
         padding: 0;
        // box-shadow: 0 0 2px rgba(0, 0, 0, .1);
@@ -202,12 +202,19 @@ main .featurette:first-of-type {
     }
 }
 
-.container.main-content {
-    margin-top: 2rem;
+.container {
+    @media (min-width: 1200px) {
+        & {
+            max-width: 1200px;
+        }
+    }
+    .main-content {
+        margin-top: 2rem;
 
-    .post-content>p:first-of-type {
-        font-size: 1.1rem;
-        font-weight: 300;
+        .post-content>p:first-of-type {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
     }
 }
 
