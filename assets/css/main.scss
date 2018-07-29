@@ -9,14 +9,20 @@ header {
     position: sticky;
     top: 0;
     z-index: 9999;
+    box-shadow: 0 0 5px rgba($dark, .3);
+
     nav.navbar {
         min-height: $big-navbar-height;
         background-color: rgba($lighter, 0.85) !important;
-        box-shadow: 0 0 5px rgba($dark, .3);
         padding: 0;
        // box-shadow: 0 0 2px rgba(0, 0, 0, .1);
         transition: 0.1s;
 
+        @supports (backdrop-filter:blur()) {
+            backdrop-filter: blur(10px);
+            background-color: rgba($lighter, 0.7) !important;
+        }
+        
         .navbar-brand {
             img {
                 max-height: 0.1rem + $big-navbar-height - 1rem; //don't let it shrink to nothing
