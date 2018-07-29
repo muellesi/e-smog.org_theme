@@ -208,20 +208,39 @@ main .featurette:first-of-type {
     }
 }
 
-.container {
+.container.main-content {
     @media (min-width: 1200px) {
         & {
             max-width: 1200px;
         }
     }
-    .main-content {
-        margin-top: 2rem;
+     
+    margin-top: 2rem;
 
-        .post-content>p:first-of-type {
+    .page-header {
+        &:after {
+            display: block;
+            content: "";
+            width: 20%;
+            background-color: #22b6fa;
+            height: 0.2rem;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+            margin-left: -1rem;
+        }
+        margin-left: -2rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        padding-left: 1rem;
+    }
+
+    .post-content {
+        p:first-of-type {
             font-size: 1.1rem;
             font-weight: 300;
         }
     }
+    
 }
 
 footer {
@@ -241,7 +260,6 @@ footer {
 main {
     p {
         text-align: justify;
-        letter-spacing: 0.002em;
     }
 }
 
