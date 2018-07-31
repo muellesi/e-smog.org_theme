@@ -1,0 +1,36 @@
+---
+layout: post
+---
+
+{% capture styles %}
+.dl-box {
+    .dl-info {
+        box-shadow: 1px 1px 2px rgba(grey, 0.5);
+        .dl-image-container {
+            min-width: 300px;
+            img {
+                margin: 0;
+            }
+        }
+    }
+    .dl-description {
+        box-shadow: 1px 1px 2px rgba(grey, 0.5);
+    }
+}
+{% endcapture %}
+
+<style>
+{{ styles | scssify }}
+</style>
+
+{% for download in site.data.downloads %}
+    {% include download_box.html 
+        imageurl=download.imageurl 
+        title=download.title 
+        version=download.version 
+        filesize=download.filesize 
+        date=download.date 
+        description=download.description 
+        downloadurl=download.downloadurl 
+    %}
+{% endfor %}

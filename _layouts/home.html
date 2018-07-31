@@ -1,45 +1,37 @@
 ---
+layout: default
 ---
-{% include html_head.html %} 
-{% include navbar.html %}
+{% for post in paginator.posts %}
+<div class="row featurette {% cycle 'odd', 'even' %}">
 
-<main role="main">
-  <div class="container">
-    {% for post in paginator.posts %}
-    <div class="row featurette {% cycle 'odd', 'even' %}">
-
-      <div class="featurette-image col-md-3">
-        <div class="img-square-container mx-auto">
-          <div class="img-square-content">
-              <a href="{{ post.url | absolute_url }}"><img class="featurette-image mx-auto" src="{{ post.image | absolute_url }}" alt=""></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="post-text col-md-9">
-        <h2 class="featurette-heading">
-          <a href="{{ post.url | absolute_url }}">{{ post.title | escape }}</a>
-        </h2>
-        <div class="postmeta">        
-            <span class="post-meta"><i class="material-icons">date_range</i> {{ post.date | date: "%d.%m.%Y" }}</span> &nbsp;
-
-            <span class="post-meta"><i class="material-icons">folder_special</i>
-              {% for category in post.categories %}{% if category != post.categories[0] %}, {%endif%}<a href="{{ category  | downcase | prepend: "/category/" | absolute_url}}">{{ category }}</a>{% endfor %}
-            </span>
-        </div>
-        <div class="px-3 pt-3 mb-2">
-            {{ post.excerpt }}
-            <p class="read-more"><a href="{{post.url | absolute_url}}">Weiterlesen...</a></p>
-        </div>
-
+  <div class="featurette-image col-md-3">
+    <div class="img-square-container mx-auto">
+      <div class="img-square-content">
+          <a href="{{ post.url | absolute_url }}"><img class="featurette-image mx-auto" src="{{ post.image | absolute_url }}" alt=""></a>
       </div>
     </div>
-
-    <hr class="featurette-divider"> 
-    {% endfor %}
-
-    {% include pagination_oldnew.html %}
   </div>
-</main>  
-  <!-- /.container -->
-  {% include standard_footer.html %}
+
+  <div class="post-text col-md-9">
+    <h2 class="featurette-heading">
+      <a href="{{ post.url | absolute_url }}">{{ post.title | escape }}</a>
+    </h2>
+    <div class="postmeta">        
+        <span class="post-meta"><i class="material-icons">date_range</i> {{ post.date | date: "%d.%m.%Y" }}</span> &nbsp;
+
+        <span class="post-meta"><i class="material-icons">folder_special</i>
+          {% for category in post.categories %}{% if category != post.categories[0] %}, {%endif%}<a href="{{ category  | downcase | prepend: "/category/" | absolute_url}}">{{ category }}</a>{% endfor %}
+        </span>
+    </div>
+    <div class="px-3 pt-3 mb-2">
+        {{ post.excerpt }}
+        <p class="read-more"><a href="{{post.url | absolute_url}}">Weiterlesen...</a></p>
+    </div>
+
+  </div>
+</div>
+
+<hr class="featurette-divider"> 
+{% endfor %}
+
+{% include pagination_oldnew.html %}
