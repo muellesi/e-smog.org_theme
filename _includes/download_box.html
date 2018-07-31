@@ -1,6 +1,6 @@
 <div class="container dl-box mb-5">
     <div class="row d-flex dl-info p-3">
-        <div class="col d-flex dl-image-container justify-content-center align-items-center"><img class="img-fluid dl-image" src="{{include.imageurl | absolute_url}}"/></div>
+        <div class="col d-flex dl-image-container justify-content-center align-items-center"><img class="img-fluid dl-image" src="{{include.imageurl | absolute_url}}" alt="{{ include.title }}"/></div>
         <div class="col dl-meta d-flex flex-column flex-md-wrap justify-content-between">
             <h2 class="downloadtitle d-flex" id="{{ include.title | slugify }}">
                 {{include.title}}
@@ -22,9 +22,7 @@
         </div>
     </div>
     <div class="row dl-description p-3">
-        <p>
-            {{include.description | liquify | markdownify}}
-        </p>
+        {{include.description | liquify | markdownify}}
     </div>
 </div>
     
