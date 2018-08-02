@@ -239,6 +239,12 @@ main .featurette:first-of-type {
             font-size: 1.1rem;
             font-weight: 300;
         }
+
+        @for $i from 2 through 6 {
+           .post-text>h#{$i} {
+              margin-top: 0.75rem * (6-$i);
+            }
+        }
     }
     
 }

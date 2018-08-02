@@ -2,7 +2,7 @@
     <div class="row d-flex dl-info p-3">
         <div class="col d-flex dl-image-container justify-content-center align-items-center"><img class="img-fluid dl-image" src="{{include.imageurl | absolute_url}}" alt="{{ include.title }}"/></div>
         <div class="col dl-meta d-flex flex-column flex-md-wrap justify-content-between">
-            <h2 class="downloadtitle d-flex" id="{{ include.title | slugify }}">
+            <h2 class="downloadtitle d-flex justify-content-center" id="{{ include.title | slugify }}">
                 {{include.title}}
             </h2>
             <div class="d-flex">
@@ -18,7 +18,7 @@
                     </li>
                 </ul>
             </div>
-            <a href="{{ include.downloadurl | absolute_url}}" class="btn btn-primary btn-lg d-flex w-100 justify-content-center" role="button">Download</a>
+            <a href="{{ include.downloadurl | absolute_url}}" class="btn btn-info btn-lg d-flex w-100 justify-content-center" role="button">Download</a>
         </div>
     </div>
     <div class="row dl-description p-3">
